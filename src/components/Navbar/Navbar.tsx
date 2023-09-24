@@ -1,8 +1,13 @@
+import { useContext } from "react";
+import { AppContext } from "../../App";
+
 interface NavbarProps {
   title: string;
 }
 
 export default function Navbar({ title }: NavbarProps) {
+  const [navbarTitle, setNavbarTitle] = useContext(AppContext);
+
   return (
     <>
       <nav className="navbar navbar-expand-md navbar-light bg-light">
@@ -30,7 +35,12 @@ export default function Navbar({ title }: NavbarProps) {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  Link
+                  <button
+                    className="btn btn-sm btn-warning"
+                    onClick={() => setNavbarTitle(!navbarTitle)}
+                  >
+                    Toggle Log
+                  </button>
                 </a>
               </li>
               <li className="nav-item dropdown">

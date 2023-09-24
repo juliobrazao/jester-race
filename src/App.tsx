@@ -1,11 +1,13 @@
 import "../src/App.css";
-import { ReactNode } from "react";
+import { ReactNode, createContext, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Modal from "./components/Modal/Modal";
 
 interface ContainerProps {
   children: ReactNode;
 }
+
+export const AppContext = createContext<any>(false);
 
 function Container({ children }: ContainerProps) {
   return (
@@ -21,12 +23,16 @@ function Container({ children }: ContainerProps) {
 }
 
 export default function App() {
+  const [navbarTitle, setNavbarTitle] = useState<boolean>(false);
+
   return (
     <>
-      <Navbar title="System" />
-      <Container>
-        <Modal />
-      </Container>
+      <AppContext.Provider value={[navbarTitle, setNavbarTitle]}>
+        <Navbar title={`System - ${navbarTitle ? "Logged" : "Not Logged"}`} />
+        <Container>
+          <Modal />
+        </Container>
+      </AppContext.Provider>
     </>
   );
 }

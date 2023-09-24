@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import Form from "../Form/Form";
+import { AppContext } from "../../App";
 
 export default function Modal() {
+  const [navbarTitle] = useContext(AppContext);
+
   return (
     <>
       <button
@@ -24,7 +28,9 @@ export default function Modal() {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="modalTitleId">
-                <strong>Subscription</strong>
+                <strong>
+                  Subscription as {navbarTitle ? "Logged" : "Unknown"}
+                </strong>
               </h5>
               <button
                 type="button"
