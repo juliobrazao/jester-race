@@ -1,4 +1,4 @@
-import Form from "./Form";
+import Form from "../Form/Form";
 
 export default function Modal() {
   return (
@@ -9,7 +9,7 @@ export default function Modal() {
         data-bs-toggle="modal"
         data-bs-target="#modalId"
       >
-        Launch
+        Subscribe to this system
       </button>
 
       <div
@@ -20,15 +20,15 @@ export default function Modal() {
         aria-labelledby="modalTitleId"
         aria-hidden="true"
       >
-        <div className="modal-dialog" role="document">
+        <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="modalTitleId">
-                Modal title
+                <strong>Subscription</strong>
               </h5>
               <button
                 type="button"
-                className="btn-close"
+                className="btn-close px-3"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
@@ -37,18 +37,6 @@ export default function Modal() {
               <div className="container-fluid">
                 <Form />
               </div>
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" className="btn btn-primary">
-                Save
-              </button>
             </div>
           </div>
         </div>
